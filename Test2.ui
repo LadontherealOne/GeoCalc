@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>737</width>
-    <height>432</height>
+    <width>887</width>
+    <height>610</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Geocalc</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -66,32 +69,135 @@
            </attribute>
            <layout class="QGridLayout" name="gridLayout_5">
             <item row="1" column="1">
-             <widget class="QLineEdit" name="lineEdit_3"/>
-            </item>
-            <item row="1" column="2">
-             <widget class="QLineEdit" name="lineEdit_4"/>
-            </item>
-            <item row="3" column="1" colspan="2">
-             <widget class="QTableWidget" name="tableWidget_3"/>
+             <widget class="QLineEdit" name="koordinaten_tabelle1_pktnr_entry">
+              <property name="frame">
+               <bool>true</bool>
+              </property>
+              <property name="echoMode">
+               <enum>QLineEdit::Normal</enum>
+              </property>
+             </widget>
             </item>
             <item row="0" column="1">
-             <widget class="QLabel" name="label_5">
+             <widget class="QLabel" name="koordinaten_tabelle1_pktnr_label">
+              <property name="frameShape">
+               <enum>QFrame::NoFrame</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Plain</enum>
+              </property>
               <property name="text">
-               <string>PktNr</string>
+               <string>Punkt Nummer</string>
+              </property>
+              <property name="textFormat">
+               <enum>Qt::AutoText</enum>
+              </property>
+              <property name="scaledContents">
+               <bool>false</bool>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1" colspan="4">
+             <widget class="QTableWidget" name="koordinaten_tabelle1_pktliste_table">
+              <column>
+               <property name="text">
+                <string>Pkt. Nr.</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Rechtswert (Y)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Hochwert (X)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Höhe über NHN</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+            <item row="1" column="4">
+             <widget class="QLineEdit" name="koordinaten_tabelle1_hoehe_entry">
+              <property name="frame">
+               <bool>true</bool>
+              </property>
+              <property name="echoMode">
+               <enum>QLineEdit::Normal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QLabel" name="koordinaten_tabelle1_hwert_label">
+              <property name="text">
+               <string>Hochwert</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QLineEdit" name="koordinaten_tabelle1_rewert_entry">
+              <property name="frame">
+               <bool>true</bool>
+              </property>
+              <property name="echoMode">
+               <enum>QLineEdit::Normal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="3">
+             <widget class="QLineEdit" name="koordinaten_tabelle1_hwert_entry">
+              <property name="frame">
+               <bool>true</bool>
+              </property>
+              <property name="echoMode">
+               <enum>QLineEdit::Normal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1" colspan="4">
+             <widget class="QPushButton" name="koordinaten_tabelle1_pkthinzufuegen_button">
+              <property name="text">
+               <string>Punkt hinzufügen</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="4">
+             <widget class="QLabel" name="koordinaten_tabelle1_hoehe_label">
+              <property name="text">
+               <string>Höhe</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
             <item row="0" column="2">
-             <widget class="QLabel" name="label_6">
+             <widget class="QLabel" name="koordinaten_tabelle1_rewert_label">
               <property name="text">
-               <string>Y</string>
+               <string>Rechtswert</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
-            <item row="2" column="1">
-             <widget class="QPushButton" name="pushButton_2">
+            <item row="3" column="1" colspan="4">
+             <widget class="QLabel" name="koordinaten_tabelle1_return_label">
               <property name="text">
-               <string>PushButton</string>
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -305,8 +411,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>737</width>
-     <height>21</height>
+     <width>887</width>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -330,38 +436,5 @@
   </action>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>tableWidget</sender>
-   <signal>cellEntered(int,int)</signal>
-   <receiver>tableWidget</receiver>
-   <slot>insertRow(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>58</x>
-     <y>94</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>111</x>
-     <y>104</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>label_4</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>66</x>
-     <y>136</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>295</x>
-     <y>139</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
