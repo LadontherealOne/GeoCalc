@@ -33,7 +33,7 @@
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -64,6 +64,38 @@
            <attribute name="title">
             <string>Tabelle_1</string>
            </attribute>
+           <layout class="QGridLayout" name="gridLayout_5">
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="lineEdit_3"/>
+            </item>
+            <item row="1" column="2">
+             <widget class="QLineEdit" name="lineEdit_4"/>
+            </item>
+            <item row="3" column="1" colspan="2">
+             <widget class="QTableWidget" name="tableWidget_3"/>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="label_5">
+              <property name="text">
+               <string>PktNr</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QLabel" name="label_6">
+              <property name="text">
+               <string>Y</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QPushButton" name="pushButton_2">
+              <property name="text">
+               <string>PushButton</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
           <widget class="QWidget" name="tab_4">
            <attribute name="title">
@@ -274,7 +306,7 @@
      <x>0</x>
      <y>0</y>
      <width>737</width>
-     <height>18</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -301,7 +333,7 @@
  <connections>
   <connection>
    <sender>tableWidget</sender>
-   <signal>cellChanged(int,int)</signal>
+   <signal>cellEntered(int,int)</signal>
    <receiver>tableWidget</receiver>
    <slot>insertRow(int)</slot>
    <hints>
