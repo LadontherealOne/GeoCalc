@@ -34,11 +34,11 @@
      <number>0</number>
     </property>
     <item row="0" column="0">
-     <widget class="QTabWidget" name="tabWidget">
+     <widget class="QTabWidget" name="main_tabWidget">
       <property name="currentIndex">
        <number>0</number>
       </property>
-      <widget class="QWidget" name="tab">
+      <widget class="QWidget" name="koordinaten_tab">
        <attribute name="title">
         <string>Koordinaten</string>
        </attribute>
@@ -59,13 +59,19 @@
          <number>0</number>
         </property>
         <item row="0" column="0">
-         <widget class="QTabWidget" name="tabWidget_2">
+         <widget class="QTabWidget" name="koordinaten_tabWidget">
           <property name="currentIndex">
            <number>0</number>
           </property>
-          <widget class="QWidget" name="tab_3">
+          <property name="tabsClosable">
+           <bool>false</bool>
+          </property>
+          <property name="tabBarAutoHide">
+           <bool>false</bool>
+          </property>
+          <widget class="QWidget" name="tabelle1_tab">
            <attribute name="title">
-            <string>Tabelle_1</string>
+            <string>KT 1</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_5">
             <item row="1" column="1">
@@ -203,106 +209,26 @@
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="tab_4">
+          <widget class="QWidget" name="add_tab">
            <attribute name="title">
-            <string>Tabelle_2</string>
+            <string>+</string>
            </attribute>
-           <layout class="QGridLayout" name="gridLayout_3">
-            <item row="0" column="0">
-             <widget class="QTableWidget" name="tableWidget">
-              <property name="sizeAdjustPolicy">
-               <enum>QAbstractScrollArea::AdjustIgnored</enum>
-              </property>
-              <property name="autoScrollMargin">
-               <number>16</number>
-              </property>
-              <property name="editTriggers">
-               <set>QAbstractItemView::AllEditTriggers</set>
-              </property>
-              <property name="alternatingRowColors">
-               <bool>true</bool>
-              </property>
-              <property name="gridStyle">
-               <enum>Qt::SolidLine</enum>
-              </property>
-              <property name="sortingEnabled">
-               <bool>false</bool>
-              </property>
-              <property name="rowCount">
-               <number>1</number>
-              </property>
-              <property name="columnCount">
-               <number>9</number>
-              </property>
-              <row>
-               <property name="text">
-                <string>1</string>
-               </property>
-              </row>
-              <column>
-               <property name="text">
-                <string>PktNr Standpunkt</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Rechtswert</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Hochwert</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Höhe</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Zielpunkt</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>H-Strecke</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>S-Strecke</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Horizontalwinkel</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Vertikalwinkel</string>
-               </property>
-              </column>
-             </widget>
-            </item>
-           </layout>
           </widget>
          </widget>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_2">
+      <widget class="QWidget" name="berechnungen_tab">
        <attribute name="title">
         <string>Berechnungen</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="0" column="1">
-         <widget class="QTabWidget" name="tabWidget_3">
+         <widget class="QTabWidget" name="berechnungen_tabWidget">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
-          <widget class="QWidget" name="tab_5">
+          <widget class="QWidget" name="geoAfg1_tab">
            <attribute name="title">
             <string>Erste Geodätische Hauptaufgabe</string>
            </attribute>
@@ -392,7 +318,7 @@
             </property>
            </widget>
           </widget>
-          <widget class="QWidget" name="tab_6">
+          <widget class="QWidget" name="geoAfg2_tab">
            <attribute name="title">
             <string>Zweite Geodätische Hauptaufgabe</string>
            </attribute>
