@@ -347,13 +347,7 @@
     </property>
     <addaction name="actionSave"/>
    </widget>
-   <widget class="QMenu" name="menuLol">
-    <property name="title">
-     <string>Lol</string>
-    </property>
-   </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuLol"/>
   </widget>
   <action name="actionSave">
    <property name="text">
