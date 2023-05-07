@@ -11,6 +11,8 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.uic import *
 
+import numpy as np
+
 app = QApplication(sys.argv)
 w = loadUi("Test2.ui")
 
@@ -55,10 +57,33 @@ def add_tab():  # adds a new (empty :/) tab with incrementet name
     if index == count-1:  # checks if current selected tab is the "add_tab"
         w.koordinaten_tabWidget.insertTab(count-1, QWidget(), "KT "+str(count))  # insert a new tab in the last-1 slot
         w.koordinaten_tabWidget.setCurrentIndex(count-1)  # swap to the new added tab
+        
+
+def show_point():   #shows the coordinates from table1
+    if w.grafik_grafik_graphicsview.scene() is None: # sets the scene in which the coordinates are displayed
+        scene = QGraphicsScene()
+        w.grafik_grafik_graphicsview.setScene(scene)
+    else:
+        scene = w.grafik_grafik_graphicsview.scene()
+        scene.clear()
+    for row in range(w.koordinaten_tabelle1_pktliste_table.rowCount()): # collects all values for x and y; displays them as an ellipse 
+        hoch_i = w.koordinaten_tabelle1_pktliste_table.item(row,1)
+        rechts_i = w.koordinaten_tabelle1_pktliste_table.item(row,2)
+        if hoch_i is not None and rechts_i is not None:
+            hoch = float(hoch_i.text())
+            rechts = float(rechts_i.text())
+            pkt = scene.addEllipse(rechts,-hoch,10,10, pen=Qt.black, brush=Qt.red)
+
+
+def clear_graph():
+        scene = w.grafik_grafik_graphicsview.scene()
+        scene.clear()
 
 
 w.koordinaten_tabelle1_pkthinzufuegen_button.clicked.connect(add_point)
 w.koordinaten_tabWidget.currentChanged.connect(add_tab)
+w.grafik_anzeigen_button.clicked.connect(show_point)
+w.grafik_clear_button.clicked.connect(clear_graph)
 
 w.show()
 sys.exit(app.exec_())
