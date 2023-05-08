@@ -332,6 +332,9 @@
         <string>Grafik</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0" colspan="2">
+         <widget class="QGraphicsView" name="grafik_grafik_graphicsview"/>
+        </item>
         <item row="1" column="0">
          <widget class="QPushButton" name="grafik_anzeigen_button">
           <property name="minimumSize">
@@ -352,8 +355,19 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="0" colspan="2">
-         <widget class="QGraphicsView" name="grafik_grafik_graphicsview"/>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="grafik_plus_button">
+          <property name="text">
+           <string>+</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="grafik_minus_button">
+          <property name="text">
+           <string>-</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -387,7 +401,7 @@
     <string>Save</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+V</string>
+    <string>Ctrl+S</string>
    </property>
   </action>
  </widget>

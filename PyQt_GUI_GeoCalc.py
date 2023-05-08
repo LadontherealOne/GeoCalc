@@ -66,24 +66,40 @@ def show_point():   #shows the coordinates from table1
     else:
         scene = w.grafik_grafik_graphicsview.scene()
         scene.clear()
+    # getting the screen height to scale the points to 1% of it
+    screen_height = QApplication.desktop().screenGeometry().height()
+    ellipse_hoch = screen_height/100
     for row in range(w.koordinaten_tabelle1_pktliste_table.rowCount()): # collects all values for x and y; displays them as an ellipse 
         hoch_i = w.koordinaten_tabelle1_pktliste_table.item(row,1)
         rechts_i = w.koordinaten_tabelle1_pktliste_table.item(row,2)
         if hoch_i is not None and rechts_i is not None:
             hoch = float(hoch_i.text())
             rechts = float(rechts_i.text())
-            pkt = scene.addEllipse(rechts,-hoch,10,10, pen=Qt.black, brush=Qt.red)
+            pkt = scene.addEllipse(rechts,-hoch,ellipse_hoch,ellipse_hoch, pen=Qt.black, brush=Qt.red)
 
 
-def clear_graph():
-        scene = w.grafik_grafik_graphicsview.scene()
-        scene.clear()
+def clear_graph(): # clears the graph
+    scene = w.grafik_grafik_graphicsview.scene()
+    scene.clear()
+   
+    
+def zoom_in():  # zooms in in the graph
+    zoom_faktor = 1.5
+    w.grafik_grafik_graphicsview.scale(zoom_faktor,zoom_faktor)
+    
+def zoom_out():  # zooms in in the graph
+    zoom_faktor = 0.5
+    w.grafik_grafik_graphicsview.scale(zoom_faktor,zoom_faktor)
+
+
 
 
 w.koordinaten_tabelle1_pkthinzufuegen_button.clicked.connect(add_point)
 w.koordinaten_tabWidget.currentChanged.connect(add_tab)
 w.grafik_anzeigen_button.clicked.connect(show_point)
 w.grafik_clear_button.clicked.connect(clear_graph)
+w.grafik_plus_button.clicked.connect(zoom_in)
+w.grafik_minus_button.clicked.connect(zoom_out)
 
 w.show()
 sys.exit(app.exec_())
