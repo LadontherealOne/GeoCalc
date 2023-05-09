@@ -10,7 +10,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.uic import *
-
+from functools import partial
 import numpy as np
 
 pkt_list = []
@@ -113,23 +113,47 @@ def zoom_out():  # zooms out of the graph
         pkt.setRect(pkt_size)
 
 
-def export_csv(): # exports the coordinates from kt1 as comma seperated values into the text field
+def export_csv(a): # exports the coordinates from kt1 as comma seperated values into the text field
     pkt = []
+    w.export_export_plaintxtedit.clear()
     for row in range(w.koordinaten_tabelle1_pktliste_table.rowCount()): # collects all values for pktnr, x, y an z
         pktnr = w.koordinaten_tabelle1_pktliste_table.item(row,0).text()
         hoch = w.koordinaten_tabelle1_pktliste_table.item(row,1).text()
         rechts = w.koordinaten_tabelle1_pktliste_table.item(row,2).text()
         höhe = w.koordinaten_tabelle1_pktliste_table.item(row,3).text()
-        if hoch is not None and rechts is not None:                     # appends the text field 
-            w.export_export_plaintxtedit.appendPlainText(f'{pktnr},{hoch},{rechts},{höhe}')
+        if hoch is not None and rechts is not None:                    # appends the text field 
+            if a == 1:
+                # CSV format
+                w.export_export_plaintxtedit.appendPlainText(f'{pktnr},{rechts},{hoch},{höhe}')
+            if a == 2:
+                # AUTOCAD Point format (german)
+                w.export_export_plaintxtedit.appendPlainText("PUNKT")
+                w.export_export_plaintxtedit.appendPlainText(f'{rechts},{hoch},{höhe}')
 
+
+
+"""
+def eventFilter(self, source, event):
+        if (source == self.grafik_grafik_graphicsview.viewport() and 
+            event.type() == QtCore.QEvent.Wheel):
+                if event.angleDelta().y() > 0:
+                    scale = 1.25
+                else:
+                    scale = .8
+                self.grafik_grafik_graphicsview.scale(scale, scale)
+                # do not propagate the event to the scroll area scrollbars
+                return True
+        elif event.type() == QtCore.QEvent.GraphicsSceneMousePress:
+            # ...
+            return super().eventFilter(source,event)"""
 
 w.koordinaten_tabelle1_pkthinzufuegen_button.clicked.connect(add_point)
 w.koordinaten_tabWidget.currentChanged.connect(add_tab)
 w.grafik_anzeigen_button.clicked.connect(show_point)
 w.grafik_clear_button.clicked.connect(clear_graph)
 w.grafik_grafik_graphicsview.setDragMode(QGraphicsView.ScrollHandDrag)
-w.export_csv_button.clicked.connect(export_csv)
+w.export_csv_button.clicked.connect(partial(export_csv,1))
+w.export_autocad_button.clicked.connect(partial(export_csv,2))
 w.grafik_plus_button.clicked.connect(zoom_in)
 w.grafik_minus_button.clicked.connect(zoom_out)
 
